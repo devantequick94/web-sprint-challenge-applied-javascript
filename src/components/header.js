@@ -1,30 +1,22 @@
 const Header = (title, date, temp) => {
-  const mainTitle = document.createElement("h1");
-  heading.textContent = title;
-
+  
+  
+  
   const div = document.createElement("div");
-  div.setAttribute("class", "header");
+  div.className = "header";
 
   const initialSpan = document.createElement("span");
-  span.setAttribute("class","date");
-  span.textContent = date;
+  initialSpan.className = "date";
+  initialSpan.textContent = date;
+
+  const mainTitle = document.createElement("h1");
+  mainTitle.textContent = title;
 
   const addSpan  = document.createElement("span");
-  addSpan.setAttribute("class", "temp");
+  addSpan.className ="temp";
   addSpan.textContent = temp;
   
-  div.classList.add("header");
-  initialSpan.classList.add("date");
-  addSpan.classList.add("temp");
-
-
-  div.appendChild(initialSpan);
-  div.appendChild(mainTitle);
-  div.appendChild(addSpan);
-
-  initialSpan.textContent = `${date}`;
-  mainTitle.textContent = `${title}`;
-  addSpan.textContent = `${temp}`;
+  div.append(initialSpan, mainTitle, addSpan);
 
   return div;
 
@@ -42,12 +34,12 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
-}
+};
 
 const headerAppender = (selector) => {
 
-  const react = document.querySelector(".header-container");
-  react.appendChild(Header('Insert Header Here'))
+  const react = document.querySelector(selector);
+  react.appendChild(Header("Insert Header Here"))
   return react
   // TASK 2
   // ---------------------
